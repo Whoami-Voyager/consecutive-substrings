@@ -1,5 +1,19 @@
 function consecutiveSubstrings(string) {
-  // type your code here
+  const stringArr = string.split('');
+  const subs = [];
+
+  stringArr.forEach((char, idx) => {
+    subs.push(char);
+
+    let fragment = char;
+
+    stringArr.slice(idx + 1).forEach((letter) => {
+      fragment = fragment + letter;
+      subs.push(fragment);
+    });
+  });
+
+  return subs;
 }
 
 if (require.main === module) {
@@ -17,3 +31,5 @@ module.exports = consecutiveSubstrings;
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
+
+// creates a new array, and puts the first and second characters of that array in it until it is reduced to nothing
